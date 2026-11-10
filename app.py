@@ -14,16 +14,17 @@ st.set_page_config(page_title="Health Assistant",
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Model directory
-model_dir = os.path.join(working_dir, "saved models")
+# Get the directory containing app.py
+working_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Load models
-with open(os.path.join(model_dir, "diabetes_model.sav"), "rb") as file:
+# Load models directly from the repository folder
+with open(os.path.join(working_dir, "diabetes_model.sav"), "rb") as file:
     diabetes_model = pickle.load(file)
 
-with open(os.path.join(model_dir, "heart_disease_model.sav"), "rb") as file:
+with open(os.path.join(working_dir, "heart_disease_model.sav"), "rb") as file:
     heart_disease_model = pickle.load(file)
 
-with open(os.path.join(model_dir, "parkinsons_model.sav"), "rb") as file:
+with open(os.path.join(working_dir, "parkinsons_model.sav"), "rb") as file:
     parkinsons_model = pickle.load(file)
 
 # sidebar for navigation
