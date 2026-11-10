@@ -10,15 +10,21 @@ st.set_page_config(page_title="Health Assistant",
 
     
 # getting the working directory of the main.py
+# Get the directory containing app.py
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
-# loading the saved models
+# Model directory
+model_dir = os.path.join(working_dir, "saved models")
 
-diabetes_model = pickle.load(open(f'C:/Users/Latitude/OneDrive/Documents/Desktop/Machine Learning-Based Disease Risk Prediction Platform/saved models/diabetes_model.sav', 'rb'))
+# Load models
+with open(os.path.join(model_dir, "diabetes_model.sav"), "rb") as file:
+    diabetes_model = pickle.load(file)
 
-heart_disease_model = pickle.load(open(f'C:/Users/Latitude/OneDrive/Documents/Desktop/Machine Learning-Based Disease Risk Prediction Platform/saved models/heart_disease_model.sav', 'rb'))
+with open(os.path.join(model_dir, "heart_disease_model.sav"), "rb") as file:
+    heart_disease_model = pickle.load(file)
 
-parkinsons_model = pickle.load(open(f'C:/Users/Latitude/OneDrive/Documents/Desktop/Machine Learning-Based Disease Risk Prediction Platform/saved models/parkinsons_model.sav', 'rb'))
+with open(os.path.join(model_dir, "parkinsons_model.sav"), "rb") as file:
+    parkinsons_model = pickle.load(file)
 
 # sidebar for navigation
 with st.sidebar:
